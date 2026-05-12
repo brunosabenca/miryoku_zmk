@@ -11,6 +11,6 @@ jobs:
     with:
       board: '[
         "seeeduino_xiao",
-        "xiao_ble//zmk"
+        "xiao_ble"
       ]'
       shield: '["hummingbird"]'

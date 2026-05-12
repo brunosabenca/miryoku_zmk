@@ -8,5 +8,5 @@ jobs:
     uses: ./.github/workflows/main.yml
     secrets: inherit
     with:
-      board: '["xiao_ble//zmk"]'
+      board: '["xiao_ble"]'
       shield: '["totem_left","totem_right"]'
