@@ -4,10 +4,26 @@
 name: 'Build totem xiao_ble'
 on: workflow_dispatch
 jobs:
-  build:
+  # standalone: left half is the central (the right half is shared with the dongle build)
+  standalone-left:
+    uses: ./.github/workflows/main.yml
+    secrets: inherit
+    with:
+      board: '["xiao_ble//zmk"]'
+      shield: '["totem_left"]'
+      kconfig: '["CONFIG_ZMK_POINTING=y\nCONFIG_ZMK_SPLIT_ROLE_CENTRAL=y"]'
+  # dongle: both halves are peripherals
+  halves:
     uses: ./.github/workflows/main.yml
     secrets: inherit
     with:
       board: '["xiao_ble//zmk"]'
       shield: '["totem_left","totem_right"]'
+      kconfig: '["CONFIG_ZMK_POINTING=y"]'
+  dongle:
+    uses: ./.github/workflows/main.yml
+    secrets: inherit
+    with:
+      board: '["xiao_ble//zmk"]'
+      shield: '["totem_dongle"]'
       kconfig: '["CONFIG_ZMK_POINTING=y"]'
