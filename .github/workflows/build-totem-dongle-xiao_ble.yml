@@ -4,17 +4,10 @@
 name: 'Build totem dongle xiao_ble'
 on: workflow_dispatch
 jobs:
-  dongle:
+  build:
     uses: ./.github/workflows/main.yml
     secrets: inherit
     with:
       board: '["xiao_ble//zmk"]'
-      shield: '["totem_dongle"]'
+      shield: '["totem_dongle","totem_left","totem_right"]'
       kconfig: '["CONFIG_ZMK_POINTING=y"]'
-  halves:
-    uses: ./.github/workflows/main.yml
-    secrets: inherit
-    with:
-      board: '["xiao_ble//zmk"]'
-      shield: '["totem_left","totem_right"]'
-      kconfig: '["CONFIG_ZMK_POINTING=y\nCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n"]'

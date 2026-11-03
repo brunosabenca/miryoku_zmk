@@ -1,5 +1,0 @@
-# Copyright 2025 Manna Harbour
-# https://github.com/manna-harbour/miryoku
-
-config SHIELD_TOTEM_DONGLE
-    def_bool $(shields_list_contains,totem_dongle)
