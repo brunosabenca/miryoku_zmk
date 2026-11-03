@@ -1,0 +1,20 @@
+# Copyright 2025 Manna Harbour
+# https://github.com/manna-harbour/miryoku
+
+name: 'Build totem dongle xiao_ble'
+on: workflow_dispatch
+jobs:
+  dongle:
+    uses: ./.github/workflows/main.yml
+    secrets: inherit
+    with:
+      board: '["xiao_ble//zmk"]'
+      shield: '["totem_dongle"]'
+      kconfig: '["CONFIG_ZMK_POINTING=y"]'
+  halves:
+    uses: ./.github/workflows/main.yml
+    secrets: inherit
+    with:
+      board: '["xiao_ble//zmk"]'
+      shield: '["totem_left","totem_right"]'
+      kconfig: '["CONFIG_ZMK_POINTING=y\nCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n"]'

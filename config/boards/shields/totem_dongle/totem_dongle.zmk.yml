@@ -1,0 +1,8 @@
+file_format: "1"
+id: totem_dongle
+name: TOTEM Dongle
+type: shield
+url: https://github.com/GEIGEIGEIST/TOTEM
+requires: [seeeduino_xiao_ble]
+features:
+  - keys
